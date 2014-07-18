@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-var ArticleProvider = require('./articleprovider-mongodb').ArticleProvider;
+var ArticleProvider = require('./providers/article-provider').ArticleProvider;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
