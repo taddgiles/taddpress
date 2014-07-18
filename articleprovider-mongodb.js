@@ -1,17 +1,20 @@
-var Db =         require('mongodb').Db;
-var Connection = require('mongodb').Connection;
-var Server =     require('mongodb').Server;
-var BSON =       require('mongodb').BSON;
-var ObjectID =   require('mongodb').ObjectID;
+var mongoUri = process.env.MONGOLAB_URI ||
+               process.env.MONGOHQ_URL  ||
+               'mongodb://localhost:27017/taddpress';
 
-ArticleProvider = function(host, port) {
-  this.db= new Db('node-mongo-blog', new Server(host, port, {auto_reconnect: true}, {}), {fsync:true});
-  this.db.open(function(){});
+var MongoClient = require('mongodb').MongoClient;
+
+
+ArticleProvider = function() {
+  MongoClient.connect(mongoUri, function(err, db) {
+    if(err) throw err;
+    this.db= db;
+  });
 };
 
 
 ArticleProvider.prototype.getCollection= function(callback) {
-  this.db.collection('articles', function(error, article_collection) {
+  db.collection('articles', function(error, article_collection) {
     if( error ) callback(error);
     else callback(null, article_collection);
   });

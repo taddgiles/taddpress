@@ -1,4 +1,5 @@
 var express = require('express');
+var logfmt = require("logfmt");
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -16,17 +17,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(favicon());
-app.use(logger('dev'));
+app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var articleProvider= new ArticleProvider();
+
 // app.use('/', routes);
 // app.use('/users', users);
-
-// var articleProvider= new ArticleProvider();
-var articleProvider = new ArticleProvider('localhost', 27017);
 
 app.get('/', function(req, res){
   articleProvider.findAll( function(error,docs){
