@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "TaddPress",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,9 +19,12 @@
     "express": "~4.2.0",
     "jade": "~1.3.0",
     "logfmt": "^1.1.2",
-    "mongodb": "~1.4.7",
-    "morgan": "~1.0.0",
+    "monk": "~0.9.0",
     "static-favicon": "~1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "should": "~4.0.4"
   },
   "author": "Tadd Giles",
   "license": "MIT",

@@ -2,9 +2,8 @@ var express = require('express');
 var logfmt = require("logfmt");
 var path = require('path');
 var favicon = require('static-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser =  require('body-parser');
 
 var routes = require('./routes/index');
 var professorx = require('./routes/professorx');
