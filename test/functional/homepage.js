@@ -1,9 +1,7 @@
+require('../shared/testutils').startApp(3000);
 var path = require('path');
 var superagent = require('superagent');
 
-var utils = require('../shared/testutils');
-
-utils.startApp(3000);
 var root = 'http://localhost:3000/';
 
 describe('/', function() {
