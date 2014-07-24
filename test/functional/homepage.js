@@ -12,7 +12,6 @@ describe('/', function() {
       .get(root)
       .end(function(err, res) {
         res.status.should.eql(200);
-        res.text.should.containEql("oh yeah");
         return done();
       });
   });
