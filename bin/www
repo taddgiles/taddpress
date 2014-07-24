@@ -1,9 +1,27 @@
 #!/usr/bin/env node
 var debug = require('debug')('myapp');
 var app = require('../app');
+var server = require('http').createServer(app);
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
-});
+var boot = function () {
+  server.listen(app.get('port'), function(){
+    console.info('Express server listening on port ' + app.get('port'));
+  });
+};
+
+var shutdown = function() {
+  server.close();
+};
+
+if (require.main === module) {
+  boot();
+}
+else {
+  // For mocha tests
+  console.info('Running app as a module');
+  exports.boot = boot;
+  exports.shutdown = shutdown;
+  exports.port = app.get('port');
+}

@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha test"
   },
   "engines": {
     "node": "0.10.x"
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "mocha": "~1.20.1",
-    "should": "~4.0.4"
+    "should": "~4.0.4",
+    "expect.js": "~0.3.1",
+    "superagent": "~0.18.2"
   },
   "author": "Tadd Giles",
   "license": "MIT",
