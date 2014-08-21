@@ -1,7 +1,7 @@
 var express = require('express');
-var logfmt = require("logfmt");
 var path = require('path');
-var favicon = require('static-favicon');
+var logfmt = require("logfmt");
+var emptyFavicon = require('empty-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser =  require('body-parser');
 
@@ -13,8 +13,10 @@ var app = module.exports = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon());
-app.use(logfmt.requestLogger());
+app.use('/favicon.ico', emptyFavicon());
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logfmt.requestLogger());
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
