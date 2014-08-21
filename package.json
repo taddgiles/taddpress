@@ -6,12 +6,17 @@
     "start": "node ./bin/www",
     "test": "mocha"
   },
-  "engines": {
-    "node": "0.10.x"
+  "author": "Tadd Giles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taddgiles/taddpress/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/taddgiles/taddpress.git"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -24,13 +29,9 @@
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
+    "expect.js": "^0.3.1",
+    "growl": "^1.8.1",
     "mocha": "~1.20.1",
-    "should": "~4.0.4",
-    "superagent": "~0.18.2"
-  },
-  "author": "Tadd Giles",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/taddgiles/taddpress/issues"
+    "zombie": "^2.0.0-alpha31"
   }
 }
