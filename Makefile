@@ -19,22 +19,19 @@ test-integration:
 		--ui $(UI) \
 		./test/integration
 
-# build-assets:
-# 	rm -rfv builtAssets
+build-assets:
+	rm -rfv builtAssets
 
-# 	./node_modules/.bin/connect-assets \
-# 		--include assets/img \
-# 		--compile app.js \
-# 		--compile modernizr.js \
-# 		--compile app.css \
-# 		--compile *.jpg \
-# 		--compile *.png \
-# 		--gzip
+	./node_modules/.bin/connect-assets \
+		--include assets/img \
+		--compile app.js \
+		--compile modernizr.js \
+		--compile app.css \
+		--compile *.jpg \
+		--compile *.png \
+		--gzip
 
-# sync-assets-to-test:
-# 	node lib/sync-assets moments-web-test
+sync-assets-to-prod:
+	node lib/sync-assets taddgiles-prod
 
-# sync-assets-to-prod:
-# 	node lib/sync-assets moments-web-prod
-
-.PHONY: test test-w test-integration build-assets sync-assets-to-test sync-assets-to-prod
+.PHONY: test test-w test-integration build-assets sync-assets-to-prod

@@ -22,6 +22,17 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+if (app.get('env') === 'production') {
+  app.use(require('connect-assets')({
+    paths: ['assets/css', 'assets/js', 'assets/img'],
+    servePath: process.env.ASSET_URL
+  }));
+} else {
+  app.use(require('connect-assets')({
+    paths: ['assets/css', 'assets/js', 'assets/img']
+  }));
+}
+
 app.use('/', routes);
 app.use('/professorx', professorx);
 

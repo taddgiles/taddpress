@@ -21,3 +21,4 @@ build/Release
 
 .DS_Store
 node_modules
+buildAssets

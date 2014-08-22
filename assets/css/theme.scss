@@ -1,0 +1,15 @@
+// testing
+.y { background-color: yellow; }
+.r { background-color: red; }
+.g { background-color: green; }
+.b { background-color: blue; }
+
+.tabs {
+  background-color: $secondary-color;
+}
+
+.side-nav {
+  .active {
+    background-color: #333333;
+  }
+}

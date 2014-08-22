@@ -1,0 +1,16 @@
+.left-tabbed-layout {
+  height: 100%;
+
+  .tabs {
+    float: left;
+    width: 250px;
+    height: 100%;
+  }
+
+  .content {
+    padding-left: 250px;
+    .row {
+      max-width: none;
+    }
+  }
+}
