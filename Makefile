@@ -31,7 +31,10 @@ build-assets:
 		--compile *.png \
 		--gzip
 
+sync-assets-to-test:
+	node lib/sync-assets taddgiles-test
+
 sync-assets-to-prod:
 	node lib/sync-assets taddgiles-prod
 
-.PHONY: test test-w test-integration build-assets sync-assets-to-prod
+.PHONY: test test-w test-integration build-assets sync-assets-to-test sync-assets-to-prod
